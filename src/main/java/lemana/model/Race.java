@@ -13,21 +13,6 @@ public class Race {
         this.raceAutos = raceAutos;
     }
 
-    // запомним лидера
-    public Auto getLeader() {
-
-        int maxDistance = 0;
-
-        for (Auto raceAuto : raceAutos) {
-            int distance = getDistanceForRaceAuto(raceAuto);
-            if(distance > maxDistance) {
-                maxDistance = distance;
-                leader = raceAuto;
-            }
-        }
-        return leader;
-    }
-
     // путь пройденный участником(авто) за 24 часа;
     public void getDistanceForRaceAuto(Auto raceAuto) {
         int distance = raceAuto.velocity * raceTime;

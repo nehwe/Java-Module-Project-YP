@@ -1,5 +1,4 @@
 import java.util.ArrayList;
-import java.util.Scanner;
 
 import lemana.model.Auto;
 import lemana.model.LemanaUserInput;
@@ -18,12 +17,16 @@ public class Main {
         // смог проехать каждый участник гонки (автомобиль),
         // и запоминаем лидера.
         Race race = new Race(raceAutos);
-        Auto leader = race.getLeader();
+        for (Auto auto : raceAutos) {
+            race.getDistanceForRaceAuto(auto);
+        }
+
+        String leaderName = userInput.getLeader().name;
 
         // Выводим название автомобиля-лидера в консоль
         // в любом понятном формате.
         // Например: Самая быстрая машина: Москвич.
-        System.out.println(String.format("Участник на автомобиле'%s' выигрывает гонку",
-                leader.name));
+        System.out.printf("Участник на автомобиле'%s' выигрывает гонку",
+                leaderName);
     }
 }
